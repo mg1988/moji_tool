@@ -1,0 +1,62 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "material": {
+          "storeFile": "/Users/genweimi/Desktop/profile/mg1988.p12",
+          "storePassword": "0000001A567E6947634A1C269A3D4388CB4DD4213EB850FE7C03A194EB040855B906AE0B340F10056F6F",
+          "keyAlias": "mg1988",
+          "keyPassword": "0000001A5588A06CF89E9B95F113DD48371805044E27F9B99E0A0CF234F81C7BC026DF83B77CEF209EE7",
+          "signAlg": "SHA256withECDSA",
+          "profile": "/Volumes/SSD/voice_to_text/voice_to_text_app/ohos/hvigor/debugDebug.p7b",
+          "certpath": "/Volumes/SSD/voice_to_text/voice_to_text_app/ohos/hvigor/test.cer"
+        }
+      },
+      {
+        "name": "release",
+        "material": {
+          "storeFile": "/Users/genweimi/Desktop/profile/mg1988.p12",
+          "storePassword": "0000001A82909748AFCBD208BD38F7F3A2D51E2CA4748E77FC2631EB53961CC8D9DF02540922F960DB69",
+          "keyAlias": "mg1988",
+          "keyPassword": "0000001AF9685BD8A9C661974F04BE0FF66A17012E11AC4CE38B285705A32DCF4193ACCF36C2CCFB9A84",
+          "signAlg": "SHA256withECDSA",
+          "profile": "/Volumes/SSD/voice_to_text/voice_to_text_app/ohos/hvigor/releaseRelease.p7b",
+          "certpath": "/Volumes/SSD/voice_to_text/voice_to_text_app/ohos/hvigor/product.cer"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "versionName": "1.0.0",
+        "versionCode":2,
+        "signingConfig": "release",
+        "compatibleSdkVersion": "5.0.2(14)",
+        "runtimeOS": "HarmonyOS",
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

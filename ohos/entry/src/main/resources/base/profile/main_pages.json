@@ -1,0 +1,11 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/PdfPage",
+    "pages/VoicePage",
+    "pages/OCRPage",
+    "pages/OCRResultPage",
+    "pages/VideoToTextPage",
+    "pages/VideoPlayPage"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "routerMap" : [
+    {
+      "name" : "PdfPage",
+      "pageSourceFile"  : "src/main/ets/pages/PdfPage.ets",
+      "buildFunction" : "PdfPageBuilder"
+    },{
+      "name" : "Voice",
+      "pageSourceFile"  : "src/main/ets/pages/VoicePage.ets",
+      "buildFunction" : "VoicePageBuilder"
+    },{
+      "name" : "OCRPage",
+      "pageSourceFile"  : "src/main/ets/pages/OCRPage.ets",
+      "buildFunction" : "OCRPageBuilder"
+    },{
+      "name" : "OCRResultPage",
+      "pageSourceFile"  : "src/main/ets/pages/OCRResultPage.ets",
+      "buildFunction" : "OCRResultPageBuilder"
+    },{
+      "name" : "VideoToTextPage",
+      "pageSourceFile"  : "src/main/ets/pages/VideoToTextPage.ets",
+      "buildFunction" : "VideoToTextPageBuilder"
+    },{
+      "name" : "VideoPlayPage",
+      "pageSourceFile"  : "src/main/ets/pages/VideoPlayPage.ets",
+      "buildFunction" : "VideoPlayPageBuilder"
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件快传</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .upload-area {
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        .upload-area:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .upload-area.dragover {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.2);
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .upload-btn, .btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+        .upload-btn:hover, .btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+        .btn-danger {
+            background: #f44336;
+        }
+        .btn-danger:hover {
+            background: #da190b;
+        }
+        .btn-primary {
+            background: #2196F3;
+        }
+        .btn-primary:hover {
+            background: #1976D2;
+        }
+        .progress {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #4CAF50;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .file-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-details {
+            flex: 1;
+        }
+        .file-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .refresh-btn {
+            background: #2196F3;
+            margin-bottom: 20px;
+        }
+        .refresh-btn:hover {
+            background: #1976D2;
+        }
+        /* 预览模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .modal-content video, .modal-content audio {
+            width: 100%;
+            max-height: 80vh;
+        }
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #bbb;
+        }
+        .preview-btn {
+            background: #FF9800;
+        }
+        .preview-btn:hover {
+            background: #F57C00;
+        }
+        /* 自动刷新选项样式 */
+        .auto-refresh {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .auto-refresh input {
+            width: 16px;
+            height: 16px;
+        }
+        .auto-refresh select {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            color: white;
+            padding: 5px;
+        }
+        /* 使用说明样式 */
+        .guide-section {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .guide-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .guide-content {
+            line-height: 1.6;
+        }
+        .guide-content ul {
+            padding-left: 20px;
+        }
+        .guide-content li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📁 文件快传</h1>
+        
+        <!-- 使用说明 -->
+        <div class="guide-section">
+            <div class="guide-title">
+                <span>ℹ️ 使用说明</span>
+            </div>
+            <div class="guide-content">
+                <ul>
+                    <li>在手机上启动"文件快传"应用，选择"接收文件"模式</li>
+                    <li>系统自动启动接收服务，显示下方地址</li>
+                    <li>其他设备可通过APP扫描或浏览器访问该地址发送文件</li>
+                    <li>当其他设备通过APP发送文件时，会自动通知本设备启动接收服务</li>
+                    <li>支持拖拽上传或点击选择文件按钮上传</li>
+                    <li>发送的文件会自动保存到手机，并在应用的"接收文件"页面中显示</li>
+                    <li><strong>优化提示：发送方会自动通知接收方启动服务，无需手动操作</strong></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 上传区域 -->
+        <h2>📤 上传文件</h2>
+        <div class="upload-area" id="uploadArea">
+            <p>点击选择文件或拖拽文件到此处</p>
+            <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                选择文件
+            </button>
+            <input type="file" id="fileInput" multiple>
+        </div>
+        <div id="progressContainer" style="display: none;">
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p id="statusText">准备上传...</p>
+        </div>
+        <div id="uploadFileList"></div>
+    </div>
+    
+    <!-- 服务端文件列表 -->
+    <div class="container">
+        <h2>📥 服务端文件列表</h2>
+        <div class="auto-refresh">
+            <input type="checkbox" id="autoRefresh" onchange="toggleAutoRefresh()">
+            <label for="autoRefresh">自动刷新</label>
+            <select id="refreshInterval" onchange="changeRefreshInterval()">
+                <option value="5000">5秒</option>
+                <option value="10000" selected>10秒</option>
+                <option value="30000">30秒</option>
+                <option value="60000">1分钟</option>
+            </select>
+        </div>
+        <button class="btn refresh-btn" onclick="loadServerFiles()">🔄 刷新列表</button>
+        <div id="serverFileList"></div>
+    </div>
+
+    <!-- 预览模态框 -->
+    <div id="previewModal" class="modal">
+        <span class="close" onclick="closePreview()">&times;</span>
+        <div id="previewContent" class="modal-content"></div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const statusText = document.getElementById('statusText');
+        const uploadFileList = document.getElementById('uploadFileList');
+        const serverFileList = document.getElementById('serverFileList');
+        const previewModal = document.getElementById('previewModal');
+        const previewContent = document.getElementById('previewContent');
+        const autoRefreshCheckbox = document.getElementById('autoRefresh');
+        const refreshIntervalSelect = document.getElementById('refreshInterval');
+        
+        let autoRefreshInterval = null;
+        let refreshIntervalMs = 10000; // 默认10秒
+
+        // 初始化加载服务端文件列表
+        loadServerFiles();
+
+        // 拖拽上传
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            if (files.length === 0) return;
+            
+            for (let file of files) {
+                uploadFile(file);
+            }
+        }
+
+        function uploadFile(file) {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            progressContainer.style.display = 'block';
+            statusText.textContent = `正在上传 ${file.name}...`;
+
+            const xhr = new XMLHttpRequest();
+            
+            xhr.upload.addEventListener('progress', (e) => {
+                if (e.lengthComputable) {
+                    const percentComplete = (e.loaded / e.total) * 100;
+                    progressBar.style.width = percentComplete + '%';
+                    statusText.textContent = `上传中... ${Math.round(percentComplete)}%`;
+                }
+            });
+
+            xhr.addEventListener('load', () => {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (xhr.status === 200 && response.success) {
+                        statusText.textContent = `${file.name} 上传成功！`;
+                        progressBar.style.width = '100%';
+                        addUploadFileToList(file.name, true);
+                        // 刷新服务端文件列表
+                        setTimeout(() => loadServerFiles(), 1000);
+                    } else {
+                        statusText.textContent = `${file.name} 上传失败: ${response.message || 'Unknown error'}`;
+                        addUploadFileToList(file.name, false);
+                    }
+                } catch (e) {
+                    statusText.textContent = `${file.name} 上传失败`;
+                    addUploadFileToList(file.name, false);
+                }
+                
+                setTimeout(() => {
+                    progressContainer.style.display = 'none';
+                    progressBar.style.width = '0%';
+                }, 2000);
+            });
+
+            xhr.addEventListener('error', () => {
+                statusText.textContent = `${file.name} 上传失败`;
+                addUploadFileToList(file.name, false);
+            });
+
+            xhr.open('POST', '/upload');
+            xhr.send(formData);
+        }
+
+        function addUploadFileToList(filename, success) {
+            const fileDiv = document.createElement('div');
+            fileDiv.className = 'file-info';
+            fileDiv.innerHTML = `
+                <span>${success ? '✅' : '❌'} ${filename}</span>
+            `;
+            uploadFileList.appendChild(fileDiv);
+        }
+        
+        // 加载服务端文件列表
+        function loadServerFiles() {
+            fetch('/files')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.files) {
+                        displayServerFiles(data.files);
+                    } else {
+                        serverFileList.innerHTML = '<p>无法加载文件列表</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('加载文件列表失败:', error);
+                    serverFileList.innerHTML = '<p>加载文件列表失败</p>';
+                });
+        }
+        
+        // 显示服务端文件列表
+        function displayServerFiles(files) {
+            if (files.length === 0) {
+                serverFileList.innerHTML = '<p>暂无文件</p>';
+                return;
+            }
+            
+            serverFileList.innerHTML = files.map(file => {
+                // 根据文件类型决定是否显示预览按钮
+                const isPreviewable = ['image', 'video', 'audio'].includes(file.type);
+                const previewBtn = isPreviewable ? 
+                    `<button class="btn preview-btn" onclick="previewFile('${file.id}', '${file.name}', '${file.type}')">👁️ 预览</button>` : '';
+                
+                return `
+                <div class="file-info">
+                    <div class="file-details">
+                        <strong>${file.name}</strong><br>
+                        <small>大小: ${file.formattedSize} | 类型: ${file.type}</small>
+                    </div>
+                    <div class="file-actions">
+                        ${previewBtn}
+                        <a href="/download/${file.id}" class="btn" download="${file.name}">📎 下载</a>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+        
+        // 预览文件
+        function previewFile(fileId, fileName, fileType) {
+            const fileUrl = `/download/${fileId}`;
+            
+            // 清空之前的内容
+            previewContent.innerHTML = '';
+            
+            if (fileType === 'image') {
+                const img = document.createElement('img');
+                img.src = fileUrl;
+                img.alt = fileName;
+                previewContent.appendChild(img);
+            } else if (fileType === 'video') {
+                const video = document.createElement('video');
+                video.controls = true;
+                video.autoplay = true;
+                const source = document.createElement('source');
+                source.src = fileUrl;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                previewContent.appendChild(video);
+            } else if (fileType === 'audio') {
+                const audio = document.createElement('audio');
+                audio.controls = true;
+                audio.autoplay = true;
+                const source = document.createElement('source');
+                source.src = fileUrl;
+                source.type = 'audio/mpeg';
+                audio.appendChild(source);
+                previewContent.appendChild(audio);
+            }
+            
+            // 显示模态框
+            previewModal.style.display = 'block';
+        }
+        
+        // 关闭预览
+        function closePreview() {
+            previewModal.style.display = 'none';
+            previewContent.innerHTML = '';
+        }
+        
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            if (event.target == previewModal) {
+                closePreview();
+            }
+        }
+        
+        // 切换自动刷新
+        function toggleAutoRefresh() {
+            if (autoRefreshCheckbox.checked) {
+                // 启动自动刷新
+                autoRefreshInterval = setInterval(loadServerFiles, refreshIntervalMs);
+            } else {
+                // 停止自动刷新
+                clearInterval(autoRefreshInterval);
+                autoRefreshInterval = null;
+            }
+        }
+        
+        // 改变刷新间隔
+        function changeRefreshInterval() {
+            refreshIntervalMs = parseInt(refreshIntervalSelect.value);
+            
+            // 如果正在自动刷新，重新启动定时器
+            if (autoRefreshCheckbox.checked) {
+                clearInterval(autoRefreshInterval);
+                autoRefreshInterval = setInterval(loadServerFiles, refreshIntervalMs);
+            }
+        }
+    </script>
+</body>
+</html>

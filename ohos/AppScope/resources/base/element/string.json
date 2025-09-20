@@ -1,0 +1,17 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "默记工具箱"
+    },  {
+      "name": "mic_reason",
+      "value": "需要访问您的麦克风以便识别语音"
+    },  {
+      "name": "location_reason",
+      "value": "需要访问您的位置，以便在时钟上显示定位"
+    },  {
+      "name": "camera_reason",
+      "value": "需要访问您的相机，以便实现扫一扫功能"
+    }
+  ]
+}

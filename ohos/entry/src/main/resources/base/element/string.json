@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "效用的工具"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "默记工具箱"
+    }
+  ]
+}

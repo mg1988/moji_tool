@@ -1,0 +1,10 @@
+{
+  "app": {
+    "bundleName": "com.mg.tool_mg",
+    "vendor": "默记工具箱",
+    "versionCode": 1000002,
+    "versionName": "1.0.1",
+    "icon": "$media:layered_image",
+    "label": "$string:app_name"
+  }
+}

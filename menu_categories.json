@@ -1,0 +1,353 @@
+{
+  "categories": [
+    {
+      "id": "frequent",
+      "name": "常用工具",
+      "icon": "Icons.star",
+      "items": [
+        {
+          "id": "time_screen",
+          "name": "时间屏幕",
+          "icon": "Icons.schedule_outlined",
+          "categoryId": "frequent"
+        },
+        {
+          "id": "marquee",
+          "name": "手持弹幕",
+          "icon": "Icons.text_rotate_vertical",
+          "categoryId": "frequent"
+        },
+        {
+          "id": "food_decision",
+          "name": "今天吃点啥",
+          "icon": "Icons.fastfood",
+          "categoryId": "frequent"
+        },
+        {
+          "id": "decision_maker",
+          "name": "做个决定",
+          "icon": "Icons.question_mark",
+          "categoryId": "frequent"
+        },
+        {
+          "id": "wooden_fish",
+          "name": "敲木鱼",
+          "icon": "Icons.format_list_numbered",
+          "categoryId": "frequent"
+        },
+        {
+          "id": "spinning_wheel",
+          "name": "指尖轮盘",
+          "icon": "Icons.refresh_outlined",
+          "categoryId": "frequent"
+        }
+      ]
+    },
+    {
+      "id": "voice",
+      "name": "语音工具",
+      "icon": "Icons.mic",
+      "items": [
+        {
+          "id": "voice_to_text",
+          "name": "语音转文字",
+          "icon": "Icons.mic_none",
+          "categoryId": "voice"
+        },
+        {
+          "id": "text_to_voice",
+          "name": "文字转语音",
+          "icon": "Icons.volume_up",
+          "categoryId": "voice"
+        }
+      ]
+    },
+    {
+      "id": "dev",
+      "name": "开发工具",
+      "icon": "Icons.developer_mode",
+      "items": [
+        {
+          "id": "json_format",
+          "name": "JSON格式化",
+          "icon": "Icons.code",
+          "categoryId": "dev"
+        },
+        {
+          "id": "color_picker",
+          "name": "颜色选择器",
+          "icon": "Icons.color_lens",
+          "categoryId": "dev"
+        },
+        {
+          "id": "regex_test",
+          "name": "正则测试",
+          "icon": "Icons.find_in_page",
+          "categoryId": "dev"
+        },
+        {
+          "id": "qr_code",
+          "name": "二维码生成",
+          "icon": "Icons.qr_code_2",
+          "categoryId": "dev"
+        },
+        {
+          "id": "timestamp",
+          "name": "时间戳转换",
+          "icon": "Icons.schedule",
+          "categoryId": "dev"
+        },
+        {
+          "id": "base64",
+          "name": "Base64转换",
+          "icon": "Icons.swap_vert",
+          "categoryId": "dev"
+        },
+        {
+          "id": "hash",
+          "name": "Hash计算",
+          "icon": "Icons.security",
+          "categoryId": "dev"
+        },
+        {
+          "id": "diff",
+          "name": "文本对比",
+          "icon": "Icons.compare_arrows",
+          "categoryId": "dev"
+        },
+        {
+          "id": "ip_query",
+          "name": "IP地址查询",
+          "icon": "Icons.lan",
+          "categoryId": "dev"
+        },
+        {
+          "id": "unit_convert",
+          "name": "单位转换",
+          "icon": "Icons.change_circle",
+          "categoryId": "dev"
+        },
+        {
+          "id": "ascii_table",
+          "name": "ASCII码表",
+          "icon": "Icons.text_rotate_vertical",
+          "categoryId": "dev"
+        },
+        {
+          "id": "uuid_generator",
+          "name": "UUID生成器",
+          "icon": "Icons.key",
+          "categoryId": "dev"
+        },
+        {
+          "id": "random_number",
+          "name": "随机数生成器",
+          "icon": "Icons.casino",
+          "categoryId": "dev"
+        },
+        {
+          "id": "icon_preview",
+          "name": "图标预览",
+          "icon": "Icons.widgets",
+          "categoryId": "dev"
+        }
+      ]
+    },
+    {
+      "id": "convert",
+      "name": "格式转换",
+      "icon": "Icons.swap_horiz",
+      "items": [
+        {
+          "id": "image_convert",
+          "name": "图片格式转换",
+          "icon": "Icons.image",
+          "categoryId": "convert"
+        },
+        {
+          "id": "video_convert",
+          "name": "视频格式转换",
+          "icon": "Icons.video_file",
+          "categoryId": "convert"
+        }
+      ]
+    },
+    {
+      "id": "encode",
+      "name": "编解码",
+      "icon": "Icons.password",
+      "items": [
+        {
+          "id": "url_encode",
+          "name": "URL编解码",
+          "icon": "Icons.link",
+          "categoryId": "encode"
+        },
+        {
+          "id": "unicode",
+          "name": "Unicode转换",
+          "icon": "Icons.abc",
+          "categoryId": "encode"
+        }
+      ]
+    },
+    {
+      "id": "text",
+      "name": "文本处理",
+      "icon": "Icons.text_snippet",
+      "items": [
+        {
+          "id": "case_converter",
+          "name": "文本大小写转换",
+          "icon": "Icons.text_format",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_counter",
+          "name": "文本字数统计",
+          "icon": "Icons.format_list_numbered",
+          "categoryId": "text"
+        },
+        {
+          "id": "duplicate_remover",
+          "name": "文本去重",
+          "icon": "Icons.clear_all",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_replacer",
+          "name": "文本替换",
+          "icon": "Icons.find_replace",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_encryption",
+          "name": "文本加密解密",
+          "icon": "Icons.lock",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_sorter",
+          "name": "文本排序",
+          "icon": "Icons.sort",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_splitter",
+          "name": "文本分割",
+          "icon": "Icons.text_decrease",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_joiner",
+          "name": "文本连接",
+          "icon": "Icons.link",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_extractor",
+          "name": "文本提取",
+          "icon": "Icons.extension",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_formatter",
+          "name": "文本格式化",
+          "icon": "Icons.format_align_left",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_padder",
+          "name": "文本补全",
+          "icon": "Icons.format_indent_increase",
+          "categoryId": "text"
+        },
+        {
+          "id": "text_filter",
+          "name": "文本过滤",
+          "icon": "Icons.filter_list_alt",
+          "categoryId": "text"
+        },
+        {
+          "id": "number_to_chinese",
+          "name": "数字转中文",
+          "icon": "Icons.numbers",
+          "categoryId": "text"
+        },
+        {
+          "id": "chinese_to_pinyin",
+          "name": "中文转拼音",
+          "icon": "Icons.abc",
+          "categoryId": "text"
+        },
+        {
+          "id": "simplified_to_traditional",
+          "name": "中文转繁体",
+          "icon": "Icons.language",
+          "categoryId": "text"
+        },
+        {
+          "id": "traditional_to_simplified",
+          "name": "繁体转中文",
+          "icon": "Icons.translate",
+          "categoryId": "text"
+        }
+      ]
+    },
+    {
+      "id": "life",
+      "name": "生活工具",
+      "icon": "Icons.home",
+      "items": [
+        {
+          "id": "calculator",
+          "name": "计算器",
+          "icon": "Icons.calculate",
+          "categoryId": "life"
+        },
+        {
+          "id": "calendar",
+          "name": "日历",
+          "icon": "Icons.calendar_today",
+          "categoryId": "life"
+        },
+        {
+          "id": "weather",
+          "name": "天气预报",
+          "icon": "Icons.cloud",
+          "categoryId": "life"
+        },
+        {
+          "id": "todo_list",
+          "name": "待办事项",
+          "icon": "Icons.checklist",
+          "categoryId": "life"
+        },
+        {
+          "id": "unit_converter",
+          "name": "单位换算",
+          "icon": "Icons.swap_vert_circle",
+          "categoryId": "life"
+        },
+        {
+          "id": "world_clock",
+          "name": "世界时钟",
+          "icon": "Icons.access_time_filled",
+          "categoryId": "life"
+        },
+        {
+          "id": "currency_converter",
+          "name": "汇率转换",
+          "icon": "Icons.monetization_on",
+          "categoryId": "life"
+        },
+        {
+          "id": "health_records",
+          "name": "健康记录",
+          "icon": "Icons.favorite",
+          "categoryId": "life"
+        }
+      ]
+    }
+  ]
+}
