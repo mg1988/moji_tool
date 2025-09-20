@@ -1,12 +1,14 @@
+
 # Moji Toolbox (默记工具箱)
 
 > 本项目以AI工具（如 GitHub Copilot、ChatGPT 等）为主导开发，充分利用人工智能辅助编码、文档生成和功能设计。
 
-> 🎉 已成功上架华为应用市场，欢迎大家下载体验并支持点赞！
-
-<p align="center">
-  <img src="images/banner1.png" alt="Moji Toolbox Banner" width="100%">
-</p>
+> 🎉 已成功上架华为应用市场，欢迎大家下载体验并支持点赞！（华为应用市场搜索：默记工具箱）
+<div align="center">
+  <img src="images/qr_code_1758351860905.jpg" alt="默记工具箱" width="400" />
+  
+  <img src="images/banner1.png" alt="Moji Toolbox Banner" width="600" />
+</div>
 
 <p align="center">
   <a href="https://github.com/mg1988/moji_tool/stargazers">
@@ -21,6 +23,21 @@
 </p>
 
 一款功能丰富的Flutter跨平台工具应用，支持Android、iOS、Web、Windows、macOS、Linux和OpenHarmony。包含了超过50种实用工具，涵盖开发、文本处理、图片处理、设备检测等多个领域。
+
+# 📝 鸿蒙专用功能待办列表
+
+> 以下为鸿蒙（OpenHarmony）平台专属功能开发计划，欢迎补充建议！
+
+- [ ] 鸿蒙设备信息增强（如HarmonyOS版本、设备类型等）
+- [ ] 鸿蒙专用文件管理器（支持沙箱、权限管理）
+- [ ] 鸿蒙原生分享/接收文件（支持超级终端、NFC等）
+- [ ] 鸿蒙系统通知推送集成
+- [ ] 鸿蒙专用UI适配（分布式窗口、卡片等）
+- [ ] 鸿蒙分布式数据同步（多设备协同）
+- [ ] 鸿蒙专用权限适配（如分布式权限、隐私保护）
+- [ ] 鸿蒙专用快捷方式/桌面卡片
+- [ ] 鸿蒙专用设备互联（超级终端、跨屏协作）
+- [ ] 鸿蒙专用API文档与开发指引
 
 ## 🌟 功能特性
 

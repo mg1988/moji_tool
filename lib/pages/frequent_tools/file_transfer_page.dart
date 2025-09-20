@@ -196,40 +196,28 @@ class _FileTransferPageState extends State<FileTransferPage>
               ),
             );
           },
-          icon: const Icon(Icons.folder_open),
+          icon: const Icon(Icons.folder_open, color: Colors.black),
           tooltip: '接收文件',
         ),
-        // 添加调试按钮
       ],
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView( // 使用SingleChildScrollView包装主Column
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              // 设备信息卡片
               _buildDeviceInfoCard(),
               const SizedBox(height: 20),
-              
-              // 使用说明指引
               _buildUsageGuide(),
               const SizedBox(height: 20),
-              
-              // 模式切换按钮
               _buildModeButtons(),
               const SizedBox(height: 30),
-              
-              // 接收模式界面
               if (_isReceiveMode) ...[
                 _buildReceiveModeCard(),
                 const SizedBox(height: 20),
               ],
-              
-              // 扫描界面
               if (!_isReceiveMode) ...[
                 _buildScanSection(),
                 const SizedBox(height: 20),
-                
-                // 设备列表
                 if (_discoveredDevices.isNotEmpty)
                   _buildDeviceList(),
               ],
@@ -244,18 +232,11 @@ class _FileTransferPageState extends State<FileTransferPage>
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Colors.blue.shade600,
-            Colors.blue.shade700,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+        color: Colors.black,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.blue.withOpacity(0.3),
+            color: Colors.black.withOpacity(0.08),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -266,7 +247,7 @@ class _FileTransferPageState extends State<FileTransferPage>
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: const Icon(
@@ -283,7 +264,7 @@ class _FileTransferPageState extends State<FileTransferPage>
                 Text(
                   '当前设备',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white.withOpacity(0.7),
                     fontSize: 14,
                   ),
                 ),
@@ -309,23 +290,23 @@ class _FileTransferPageState extends State<FileTransferPage>
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.blue.shade50,
+        color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.blue.shade200),
+        border: Border.all(color: Colors.grey.shade300),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          const Row(
             children: [
-              Icon(Icons.info, color: Colors.blue.shade600),
-              const SizedBox(width: 8),
+              Icon(Icons.info, color: Colors.black),
+              SizedBox(width: 8),
               Text(
                 '使用说明',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue.shade800,
+                  color: Colors.black,
                 ),
               ),
             ],
@@ -338,18 +319,18 @@ class _FileTransferPageState extends State<FileTransferPage>
             '• 文件管理：点击右上角文件夹图标查看和管理已接收的文件',
             style: TextStyle(
               fontSize: 14,
-              color: Colors.blue.shade700,
+              color: Colors.black87,
               height: 1.5,
             ),
           ),
           const SizedBox(height: 12),
           GestureDetector(
             onTap: _showDetailedGuide,
-            child: Text(
+            child: const Text(
               '查看详情使用说明 →',
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.blue.shade600,
+                color: Colors.black,
                 fontWeight: FontWeight.w500,
                 decoration: TextDecoration.underline,
               ),
@@ -541,10 +522,10 @@ class _FileTransferPageState extends State<FileTransferPage>
         duration: const Duration(milliseconds: 300),
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
         decoration: BoxDecoration(
-          color: isActive ? Colors.blue.shade600 : Colors.grey.shade100,
+          color: isActive ? Colors.black : Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isActive ? Colors.blue.shade600 : Colors.grey.shade300,
+            color: isActive ? Colors.black : Colors.grey.shade300,
             width: 1,
           ),
         ),
@@ -553,14 +534,14 @@ class _FileTransferPageState extends State<FileTransferPage>
           children: [
             Icon(
               icon,
-              color: isActive ? Colors.white : Colors.grey.shade600,
+              color: isActive ? Colors.white : Colors.black,
               size: 20,
             ),
             const SizedBox(width: 8),
             Text(
               label,
               style: TextStyle(
-                color: isActive ? Colors.white : Colors.grey.shade600,
+                color: isActive ? Colors.white : Colors.black,
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
@@ -575,9 +556,9 @@ class _FileTransferPageState extends State<FileTransferPage>
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: Colors.green.shade50,
+        color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.green.shade200),
+        border: Border.all(color: Colors.grey.shade300),
       ),
       child: Column(
         children: [
@@ -588,8 +569,8 @@ class _FileTransferPageState extends State<FileTransferPage>
                 scale: _pulseAnimation.value,
                 child: Container(
                   padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.green.shade600,
+                  decoration: const BoxDecoration(
+                    color: Colors.black,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
@@ -602,20 +583,20 @@ class _FileTransferPageState extends State<FileTransferPage>
             },
           ),
           const SizedBox(height: 16),
-          Text(
+          const Text(
             '接收模式已启动',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.green.shade800,
+              color: Colors.black,
             ),
           ),
           const SizedBox(height: 8),
-          Text(
+          const Text(
             '其他设备可以通过以下地址发送文件',
             style: TextStyle(
               fontSize: 14,
-              color: Colors.green.shade600,
+              color: Colors.black54,
             ),
             textAlign: TextAlign.center,
           ),
@@ -626,7 +607,7 @@ class _FileTransferPageState extends State<FileTransferPage>
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.green.shade300),
+                border: Border.all(color: Colors.grey.shade300),
               ),
               child: Row(
                 children: [
@@ -650,26 +631,25 @@ class _FileTransferPageState extends State<FileTransferPage>
                         ),
                       );
                     },
-                    icon: const Icon(Icons.copy, size: 20),
+                    icon: const Icon(Icons.copy, size: 20, color: Colors.black),
                   ),
                 ],
               ),
             ),
           ],
-                      const SizedBox(height: 16),
-            ElevatedButton.icon(
-              onPressed: () => _showQrCodePopup(),
-              icon: const Icon(Icons.qr_code),
-              label: const Text('显示二维码'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green.shade600,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
+          const SizedBox(height: 16),
+          ElevatedButton.icon(
+            onPressed: () => _showQrCodePopup(),
+            icon: const Icon(Icons.qr_code, color: Colors.white),
+            label: const Text('显示二维码'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black,
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
-
+          ),
         ],
       ),
     );
@@ -701,6 +681,7 @@ class _FileTransferPageState extends State<FileTransferPage>
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(height: 20),
@@ -711,7 +692,7 @@ class _FileTransferPageState extends State<FileTransferPage>
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
+                      color: Colors.black.withOpacity(0.08),
                       blurRadius: 5,
                       offset: const Offset(0, 2),
                     ),
@@ -730,15 +711,16 @@ class _FileTransferPageState extends State<FileTransferPage>
                 style: const TextStyle(
                   fontFamily: 'monospace',
                   fontSize: 12,
+                  color: Colors.black,
                 ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30),
-              Text(
+              const Text(
                 '请使用其他设备扫描上方二维码进行文件传输',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.grey.shade600,
+                  color: Colors.black54,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -746,7 +728,7 @@ class _FileTransferPageState extends State<FileTransferPage>
               ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue.shade600,
+                  backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -769,7 +751,6 @@ class _FileTransferPageState extends State<FileTransferPage>
   Widget _buildScanSection() {
     return Column(
       children: [
-        // 扫描动画
         SizedBox(
           height: 120,
           child: Center(
@@ -779,7 +760,6 @@ class _FileTransferPageState extends State<FileTransferPage>
                 return Stack(
                   alignment: Alignment.center,
                   children: [
-                    // 外圈动画
                     if (_isScanning)
                       Transform.scale(
                         scale: 1.0 + (_scanAnimation.value * 0.5),
@@ -789,7 +769,7 @@ class _FileTransferPageState extends State<FileTransferPage>
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: Colors.blue.withOpacity(
+                              color: Colors.black.withOpacity(
                                 1.0 - _scanAnimation.value,
                               ),
                               width: 2,
@@ -805,10 +785,10 @@ class _FileTransferPageState extends State<FileTransferPage>
                         height: 80,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: _isScanning ? Colors.red.shade600 : Colors.blue.shade600,
+                          color: _isScanning ? Colors.red.shade700 : Colors.black,
                           boxShadow: [
                             BoxShadow(
-                              color: (_isScanning ? Colors.red : Colors.blue).withOpacity(0.3),
+                              color: (_isScanning ? Colors.red : Colors.black).withOpacity(0.12),
                               blurRadius: 10,
                               offset: const Offset(0, 4),
                             ),
@@ -830,9 +810,9 @@ class _FileTransferPageState extends State<FileTransferPage>
         const SizedBox(height: 16),
         Text(
           _isScanning ? '正在扫描设备...' : '点击开始扫描',
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
-            color: Colors.grey.shade600,
+            color: Colors.black54,
           ),
         ),
       ],
@@ -877,10 +857,10 @@ class _FileTransferPageState extends State<FileTransferPage>
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.grey.shade200),
+          border: Border.all(color: Colors.grey.shade300),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
+              color: Colors.black.withOpacity(0.06),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
@@ -891,12 +871,12 @@ class _FileTransferPageState extends State<FileTransferPage>
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.blue.shade50,
+                color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
                 _getDeviceIcon(device.type),
-                color: Colors.blue.shade600,
+                color: Colors.black,
                 size: 24,
               ),
             ),
@@ -910,22 +890,23 @@ class _FileTransferPageState extends State<FileTransferPage>
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
+                      color: Colors.black,
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     '${device.ip} • ${device.type}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
-                      color: Colors.grey.shade600,
+                      color: Colors.black54,
                     ),
                   ),
                 ],
               ),
             ),
-            Icon(
+            const Icon(
               Icons.arrow_forward_ios,
-              color: Colors.grey.shade400,
+              color: Colors.black26,
               size: 16,
             ),
           ],
@@ -971,26 +952,27 @@ class _FileSendPageState extends State<_FileSendPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('发送到 ${widget.device.name}'),
-        backgroundColor: Colors.blue.shade600,
-        foregroundColor: Colors.white,
+        title: Text('发送到 ${widget.device.name}', style: const TextStyle(color: Colors.black)),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        iconTheme: const IconThemeData(color: Colors.black),
+        elevation: 0.5,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // 设备信息
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.blue.shade50,
+                color: Colors.grey.shade100,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.phone_android,
-                    color: Colors.blue.shade600,
+                    color: Colors.black,
                     size: 32,
                   ),
                   const SizedBox(width: 16),
@@ -1003,19 +985,20 @@ class _FileSendPageState extends State<_FileSendPage> {
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
+                            color: Colors.black,
                           ),
                         ),
                         Text(
                           widget.device.ip,
-                          style: TextStyle(
-                            color: Colors.grey.shade600,
+                          style: const TextStyle(
+                            color: Colors.black54,
                           ),
                         ),
                         const SizedBox(height: 4),
                         Text(
                           '端口: ${widget.device.port}',
-                          style: TextStyle(
-                            color: Colors.grey.shade500,
+                          style: const TextStyle(
+                            color: Colors.black38,
                             fontSize: 12,
                           ),
                         ),
@@ -1026,15 +1009,13 @@ class _FileSendPageState extends State<_FileSendPage> {
               ),
             ),
             const SizedBox(height: 30),
-            
-            // 文件选择按钮
             if (!_isTransferring) ...[
               ElevatedButton.icon(
                 onPressed: _selectFile,
-                icon: const Icon(Icons.folder_open),
+                icon: const Icon(Icons.folder_open, color: Colors.white),
                 label: const Text('选择文件'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue.shade600,
+                  backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 32,
@@ -1046,13 +1027,13 @@ class _FileSendPageState extends State<_FileSendPage> {
                 const SizedBox(height: 20),
                 Text(
                   '已选择: ${_selectedFile!.name}',
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16, color: Colors.black),
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: _sendFile,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green.shade600,
+                    backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 40,
@@ -1063,38 +1044,34 @@ class _FileSendPageState extends State<_FileSendPage> {
                 ),
               ],
             ],
-            
-            // 传输进度
             if (_isTransferring) ...[
-              const CircularProgressIndicator(),
+              const CircularProgressIndicator(color: Colors.black),
               const SizedBox(height: 20),
               Text(
                 '正在发送... ${(_progress * 100).toInt()}%',
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16, color: Colors.black),
               ),
               const SizedBox(height: 10),
-              LinearProgressIndicator(value: _progress),
+              LinearProgressIndicator(value: _progress, color: Colors.black, backgroundColor: Colors.grey.shade300),
             ],
-            
-            // 优化提示
             const SizedBox(height: 30),
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.orange.shade50,
+                color: Colors.grey.shade100,
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.orange.shade200),
+                border: Border.all(color: Colors.grey.shade300),
               ),
               child: Row(
                 children: [
-                  Icon(Icons.info, color: Colors.orange.shade700, size: 20),
+                  const Icon(Icons.info, color: Colors.black, size: 20),
                   const SizedBox(width: 8),
-                  Expanded(
+                  const Expanded(
                     child: Text(
                       '提示：接收方设备会自动启动接收服务，无需手动操作',
                       style: TextStyle(
                         fontSize: 12,
-                        color: Colors.orange.shade800,
+                        color: Colors.black,
                       ),
                     ),
                   ),
