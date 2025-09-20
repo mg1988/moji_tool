@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="images/foreground.jpg" alt="Moji Toolbox Banner" width="80%" />
+  <img src="images/foreground.jpg" alt="Moji Toolbox Banner" width="30px" />
   <b style="font-size:1.5em;">Moji Toolbox 默记工具箱</b>
   <br>
   <b>支持iOS、鸿蒙，完全开源！！</b>
@@ -41,7 +41,7 @@ Moji Toolbox（默记工具箱）是一款功能丰富的 Flutter 跨平台工�
 
 - 🚀 <b>多平台适配</b>：支持鸿蒙、安卓、iOS
 - 🆓 <b>免费无广告</b>：所有功能永久免费，无任何广告干扰
-- 🧠 <b>AI辅助开发</b>：充分利用 GitHub Copilot、ChatGPT 等 AI 工具辅助开发。
+- 🧠 <b>AI辅助开发</b>：充分利用 GitHub Copilot、ChatGPT 等 AI 工具辅助开发。AI的效率你无法想象！！！
 - 🛠️ <b>工具丰富</b>：涵盖文件快传、图片处理、文本处理、开发工具等
 ---
 
