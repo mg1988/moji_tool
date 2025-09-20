@@ -69,24 +69,6 @@ class _FullscreenImagePreviewState extends State<FullscreenImagePreview> {
         }
         return;
       }
-
-      // 请求存储权限
-      final status = await Permission.storage.request();
-      if (!status.isGranted) {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('需要存储权限才能保存图片到相册'),
-              backgroundColor: AppColors.error,
-            ),
-          );
-        }
-        setState(() {
-          _isLoading = false;
-        });
-        return;
-      }
-
       // 读取图片数据
       final imageBytes = await file.readAsBytes();
 

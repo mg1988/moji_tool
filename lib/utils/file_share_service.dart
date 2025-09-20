@@ -23,7 +23,7 @@ class FileShareService {
       if (kIsWeb) {
         // Web平台：下载文件
         await _shareFilesWeb(existingFiles);
-      } else if (Platform.isAndroid || Platform.isIOS) {
+      } else if (Platform.isAndroid || Platform.isIOS || Platform.isOhos) {
         // 移动平台：使用系统分享
         await _shareFilesMobile(filePaths, existingFiles);
       } else {
@@ -150,7 +150,7 @@ $fileList
   Future<bool> isNativeShareSupported() async {
     try {
       if (kIsWeb) return false;
-      if (Platform.isAndroid || Platform.isIOS) {
+      if (Platform.isAndroid || Platform.isIOS || Platform.isOhos) {
         final result = await _platform.invokeMethod('isShareSupported');
         return result as bool? ?? false;
       }

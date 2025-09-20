@@ -1,5 +1,9 @@
 # Moji Toolbox (默记工具箱)
 
+> 本项目以AI工具（如 GitHub Copilot、ChatGPT 等）为主导开发，充分利用人工智能辅助编码、文档生成和功能设计。
+
+> 🎉 已成功上架华为应用市场，欢迎大家下载体验并支持点赞！
+
 <p align="center">
   <img src="images/banner1.png" alt="Moji Toolbox Banner" width="100%">
 </p>
@@ -11,8 +15,8 @@
   <a href="https://github.com/mg1988/moji_tool/issues">
     <img src="https://img.shields.io/github/issues/mg1988/moji_tool" alt="GitHub issues">
   </a>
-  <a href="https://github.com/your-username/moji_tool/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/mg1988/moji_tool" alt="GitHub">
+  <a href="https://github.com/mg1988/moji_tool/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/m g/moji_tool" alt="GitHub">
   </a>
 </p>
 
@@ -74,11 +78,12 @@
 
 ## 🚀 技术栈
 - [Flutter框架](https://flutter.dev/) (Dart语言)
-- 支持多平台构建：Android、iOS、Web、OpenHarmony
+- 支持多平台构建：Android、iOS、OpenHarmony
 - 丰富的第三方插件支持
 
 ## 📋 开发环境要求
 - Flutter SDK 3.4+
+支持鸿蒙可参考 https://gitcode.com/openharmony-tpc/flutter_flutter?source_module=search_project
 - Android Studio / VS Code
 - 对应平台的构建工具（Android SDK、Xcode等）
 
@@ -99,33 +104,31 @@ flutter run
 # 构建各平台应用
 flutter build android    # Android
 flutter build ios        # iOS
-flutter build macos      # macOS
-flutter build linux      # Linux
+flutter build hap    #  鸿蒙
 ```
 
 ## 📁 项目结构
 
 ```
-lib/
-├── components/     # 通用UI组件
-├── data/           # 数据源
-├── models/         # 数据模型
-├── pages/          # 页面组件
-├── utils/          # 工具类
-└── main.dart       # 应用入口
+```bash
+# 克隆项目
+git clone https://github.com/mg1988/moji_tool.git
+
+cd moji_tool
+
+# 获取依赖
+flutter pub get
+
+# 运行应用（Android暂不支持运行）
+flutter run
+
+# 构建各平台应用
+# 注意：Android平台暂不支持运行和构建
+flutter build android    # Android（暂不支持，开发者可自行适配！）
+flutter build ios        # iOS
+flutter build hap        # 鸿蒙
+
 ```
-
-## 🤝 贡献
-
-欢迎提交Issue和Pull Request来改进这个项目。
-
-1. Fork 本仓库
-2. 创建您的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交您的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启一个Pull Request
-
-## 📄 许可证
 
 本项目采用MIT许可证，详情请见 [LICENSE](LICENSE) 文件。
 
@@ -133,4 +136,4 @@ lib/
 
 Genwei Mi - migenwei@163.com
 
-项目链接: [https://github.com/your-username/moji_tool](https://github.com/your-username/moji_tool)
+项目链接: [https://github.com/mg1988/moji_tool](https://github.com/mg1988/moji_tool)
