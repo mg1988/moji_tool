@@ -5,14 +5,14 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/your-username/moji_tool/stargazers">
-    <img src="https://img.shields.io/github/stars/your-username/moji_tool" alt="GitHub stars">
+  <a href="https://github.com/mg1988/moji_tool/stargazers">
+    <img src="https://img.shields.io/github/stars/mg1988/moji_tool" alt="GitHub stars">
   </a>
-  <a href="https://github.com/your-username/moji_tool/issues">
-    <img src="https://img.shields.io/github/issues/your-username/moji_tool" alt="GitHub issues">
+  <a href="https://github.com/mg1988/moji_tool/issues">
+    <img src="https://img.shields.io/github/issues/mg1988/moji_tool" alt="GitHub issues">
   </a>
   <a href="https://github.com/your-username/moji_tool/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/your-username/moji_tool" alt="GitHub">
+    <img src="https://img.shields.io/github/license/mg1988/moji_tool" alt="GitHub">
   </a>
 </p>
 
@@ -74,7 +74,7 @@
 
 ## 🚀 技术栈
 - [Flutter框架](https://flutter.dev/) (Dart语言)
-- 支持多平台构建：Android、iOS、Web、Windows、macOS、Linux、OpenHarmony
+- 支持多平台构建：Android、iOS、Web、OpenHarmony
 - 丰富的第三方插件支持
 
 ## 📋 开发环境要求
@@ -86,7 +86,7 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/moji_tool.git
+git clone https://github.com/mg1988/moji_tool.git
 
 cd moji_tool
 
@@ -99,8 +99,6 @@ flutter run
 # 构建各平台应用
 flutter build android    # Android
 flutter build ios        # iOS
-flutter build web        # Web
-flutter build windows    # Windows
 flutter build macos      # macOS
 flutter build linux      # Linux
 ```
